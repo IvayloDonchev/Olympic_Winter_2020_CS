@@ -51,8 +51,6 @@ namespace Olympic_Winter_2020
 		}
 		static void Main(string[] args)
         {
-			for(int i=1; i<=10; i++)
-				Console.WriteLine(Ipow(10,i));
 			Console.Write(">> ");
 			var result = Calculate(Console.ReadLine());
 			Console.WriteLine(result);
