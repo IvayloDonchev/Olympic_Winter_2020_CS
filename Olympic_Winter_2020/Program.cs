@@ -11,6 +11,18 @@ namespace Olympic_Winter_2020
 				res *= a;
 			return res;
 		}
+		public static int Ipow(int a, int n)    // повдига a на степен n (по-бърз алгоритъм)
+		{
+			int result = 1;
+			while(n > 0)
+			{
+				if (n %2 == 1)
+					result *= a;
+				a *= a;
+				n >>= 1;
+			}
+			return result;
+		}
 		public static int Replace(int number, int d1, int d2)
 		{
 			int position = 0;
@@ -20,7 +32,7 @@ namespace Olympic_Winter_2020
 				int digit = number % 10;
 				number /= 10;
 				if (digit == d1) digit = d2;
-				result += digit * Pow(10, position++);
+				result += digit * Ipow(10, position++);
 			}
 			return result;
 		}
@@ -39,6 +51,8 @@ namespace Olympic_Winter_2020
 		}
 		static void Main(string[] args)
         {
+			for(int i=1; i<=10; i++)
+				Console.WriteLine(Ipow(10,i));
 			Console.Write(">> ");
 			var result = Calculate(Console.ReadLine());
 			Console.WriteLine(result);
